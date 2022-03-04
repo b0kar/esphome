@@ -239,7 +239,7 @@ void TCS34725Component::update() {
     this->ppfd_sensor_->publish_state(this->ppfd_);
 
   ESP_LOGD(TAG, "Got Red=%.1f%%,Green=%.1f%%,Blue=%.1f%%,Clear=%.1f%% Illuminance=%.1flx Color Temperature=%.1fK PPFD=%1fµmol/s/m²",
-           channel_r, channel_g, channel_b, channel_c, this->illuminance_, this->color_temperature_, this->ppfd_);
+           raw_r, raw_g, raw_b, raw_c, this->illuminance_, this->color_temperature_, this->ppfd_);
 
   this->status_clear_warning();
 }

@@ -173,7 +173,7 @@ void TCS34725Component::calculate_temperature_and_lux_and_ppfd_(uint16_t r, uint
                              CT_OFFSET; /** Color temp offset. */
   // PPFD calculation
   float par = (PPFD_C_COEF * c + PPFD_R_COEF * r2 + PPFD_G_COEF * g2 + PPFD_B_COEF * b2) * 0.001;  // MultispeQ Beta PAR sensor TCS34715 equation
-  this->ppfd_ = par / cpl;
+  this->ppfd_ = par;// / cpl;
 }
 
 void TCS34725Component::update() {

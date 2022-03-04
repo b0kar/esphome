@@ -225,8 +225,8 @@ void TCS34725Component::update() {
   if (this->blue_sensor_ != nullptr)
     this->blue_sensor_->publish_state(channel_b);
 
-  if (this->illuminance_sensor_ || this->color_temperature_sensor_) {
-    calculate_temperature_and_lux_(raw_r, raw_g, raw_b, raw_c);
+  if (this->illuminance_sensor_ || this->color_temperature_sensor_ || this->ppfd_ ) {
+    calculate_temperature_and_lux_and_ppfd_(raw_r, raw_g, raw_b, raw_c);
   }
 
   if (this->illuminance_sensor_ != nullptr)
@@ -234,6 +234,9 @@ void TCS34725Component::update() {
 
   if (this->color_temperature_sensor_ != nullptr)
     this->color_temperature_sensor_->publish_state(this->color_temperature_);
+
+  if (this->ppfd_ != nullptr)
+    this->ppfd_->publish_state(this->ppfd_);
 
   ESP_LOGD(TAG, "Got Red=%.1f%%,Green=%.1f%%,Blue=%.1f%%,Clear=%.1f%% Illuminance=%.1flx Color Temperature=%.1fK PPFD=%1fµmol/s/m²",
            channel_r, channel_g, channel_b, channel_c, this->illuminance_, this->color_temperature_), this->ppfd_;

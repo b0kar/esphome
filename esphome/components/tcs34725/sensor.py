@@ -69,19 +69,19 @@ color_channel_schema = sensor.sensor_schema(
 color_temperature_schema = sensor.sensor_schema(
     unit_of_measurement=UNIT_KELVIN,
     icon=ICON_THERMOMETER,
-    accuracy_decimals=1,
+    accuracy_decimals=0,
     state_class=STATE_CLASS_MEASUREMENT,
 )
 illuminance_schema = sensor.sensor_schema(
     unit_of_measurement=UNIT_LUX,
-    accuracy_decimals=1,
+    accuracy_decimals=0,
     device_class=DEVICE_CLASS_ILLUMINANCE,
     state_class=STATE_CLASS_MEASUREMENT,
 )
 ppfd_schema = sensor.sensor_schema(
     unit_of_measurement="µmol/s/m²",
     icon=ICON_LIGHTBULB,
-    accuracy_decimals=1,
+    accuracy_decimals=0,
     device_class=DEVICE_CLASS_ILLUMINANCE,
     state_class=STATE_CLASS_MEASUREMENT,
 )

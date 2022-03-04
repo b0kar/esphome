@@ -238,7 +238,7 @@ void TCS34725Component::update() {
   if (this->ppfd_sensor_ != nullptr)
     this->ppfd_sensor_->publish_state(this->ppfd_);
 
-  ESP_LOGD(TAG, "Got Red=%.1f%%,Green=%.1f%%,Blue=%.1f%%,Clear=%.1f%% Illuminance=%.1flx Color Temperature=%.1fK PPFD=%1fµmol/s/m²",
+  ESP_LOGD(TAG, "Got Red=%d%,Green=%d,Blue=%d,Clear=%d Illuminance=%.1flx Color Temperature=%.1fK PPFD=%1fµmol/s/m²",
            raw_r, raw_g, raw_b, raw_c, this->illuminance_, this->color_temperature_, this->ppfd_);
 
   this->status_clear_warning();

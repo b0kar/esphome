@@ -151,9 +151,9 @@ void TCS34725Component::calculate_temperature_and_lux_and_ppfd_(uint16_t r, uint
   ir = ((r + g + b) > c) ? (r + g + b - c) / 2 : 0;
 
   /* Remove the IR component from the raw RGB values */
-  r2 = r - ir;
-  g2 = g - ir;
-  b2 = b - ir;
+  r2 = r;// - ir;
+  g2 = g;// - ir;
+  b2 = b;// - ir;
 
   if (r2 == 0) {
     return;

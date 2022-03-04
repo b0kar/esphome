@@ -81,7 +81,7 @@ void TCS34725Component::calculate_temperature_and_lux_and_ppfd_(uint16_t r, uint
 
   this->illuminance_ = 0;  // Assign 0 value before calculation
   this->color_temperature_ = 0;
-
+  this->ppfd_ = 0;
   const float ga = this->glass_attenuation_;  // Glass Attenuation Factor
   static const float DF = 310.f;              // Device Factor
   static const float R_COEF = 0.136f;         //

@@ -140,4 +140,4 @@ async def to_code(config):
         cg.add(var.set_color_temperature_sensor(sens))
     if CONF_PPFD in config:
         sens = await sensor.new_sensor(config[CONF_PPFD])
-        cg.add(var.set_ppfd(sens))
+        cg.add(var.set_ppfd_sensor(sens))

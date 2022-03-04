@@ -15,6 +15,7 @@ from esphome.const import (
     ICON_THERMOMETER,
     UNIT_KELVIN,
     UNIT_LUX,
+    UNIT_PPFD,
 )
 
 DEPENDENCIES = ["i2c"]
@@ -79,7 +80,7 @@ illuminance_schema = sensor.sensor_schema(
     state_class=STATE_CLASS_MEASUREMENT,
 )
 ppfd_schema = sensor.sensor_schema(
-    unit_of_measurement=UNIT_LUX,
+    unit_of_measurement=UNIT_PPFD,
     icon=ICON_LIGHTBULB,
     accuracy_decimals=1,
     device_class=DEVICE_CLASS_ILLUMINANCE,

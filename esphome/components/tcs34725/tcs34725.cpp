@@ -157,9 +157,9 @@ void TCS34725Component::calculate_temperature_and_lux_and_ppfd_(uint16_t r, uint
   ir = ((r + g + b) > c) ? (r + g + b - c) / 2 : 0;
 
   /* Remove the IR component from the raw RGB values */
-  r2 = r - ir;
-  g2 = g - ir;
-  b2 = b - ir;
+  r2 = r;// - ir;
+  g2 = g;// - ir;
+  b2 = b;// - ir;
   // discarding super low values? not recemmonded, and avoided by using auto gain.
   if (r2 == 0) {
     // legacy code
@@ -256,7 +256,7 @@ void TCS34725Component::update() {
 
 
 
-  ESP_LOGD(TAG, "Got Red=%d%,Green=%d,Blue=%d,Clear=%d Illuminance=%.1flx Color Temperature=%.1fK PPFD=%1fµmol/s/m²",
+  ESP_LOGD(TAG, "Got Red=%d%,Green=%d,Blue=%d,Clear=%d Illuminance=%.1flx Color Temperature=%.1fK PPFD=%fµmol/s/m²",
            raw_r, raw_g, raw_b, raw_c, this->illuminance_, this->color_temperature_, this->ppfd_);
 
   if (this->integration_time_auto_) {
